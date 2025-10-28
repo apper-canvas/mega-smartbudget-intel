@@ -1,13 +1,12 @@
-import React, { useContext } from "react";
-import { NavLink, useNavigate } from "react-router-dom";
-import { AuthContext } from "@/App";
+import React from "react";
+import { useNavigate } from "react-router-dom";
+import { useAuth } from "@/layouts/Root";
 import { cn } from "@/utils/cn";
 import ApperIcon from "@/components/ApperIcon";
 
 const Header = () => {
-  const { logout } = useContext(AuthContext);
+  const { logout } = useAuth();
   const navigate = useNavigate();
-  
   return (
     <header className="bg-white border-b border-slate-200 sticky top-0 z-50 shadow-sm">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">

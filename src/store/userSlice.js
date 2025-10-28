@@ -1,12 +1,13 @@
-import { createSlice } from "@reduxjs/toolkit";
+import { createSlice } from '@reduxjs/toolkit';
 
 const initialState = {
   user: null,
-  isAuthenticated: false
+  isAuthenticated: false,
+  isInitialized: false,
 };
 
 export const userSlice = createSlice({
-  name: "user",
+  name: 'user',
   initialState,
   reducers: {
     setUser: (state, action) => {
@@ -16,9 +17,12 @@ export const userSlice = createSlice({
     clearUser: (state) => {
       state.user = null;
       state.isAuthenticated = false;
-    }
-  }
+    },
+    setInitialized: (state, action) => {
+      state.isInitialized = action.payload;
+    },
+  },
 });
 
-export const { setUser, clearUser } = userSlice.actions;
+export const { setUser, clearUser, setInitialized } = userSlice.actions;
 export default userSlice.reducer;
